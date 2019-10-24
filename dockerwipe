@@ -1,0 +1,49 @@
+#!/bin/bash
+# vi:syntax=sh
+#
+# dockerwipe 1.0.0
+# Copyright © 2019 Ain Tohvri. Licenced under GPL-3.
+
+
+# TODO: add usage, help when running bare
+
+remove_dangling_volumes() {
+  local readonly volumes=`docker volume ls -qf dangling=true`
+  local readonly volume_count=`echo "$volumes" | wc -l | sed 's/[[:space:]]//g'`
+  if [ -n "$volumes" ]; then
+    echo -e "Removing dangling Docker volumes ($volume_count)..."
+    docker volume rm $volumes
+  fi
+}
+
+remove_dangling_images() {
+  local readonly images=`docker images -qf dangling=true`
+  local readonly image_count=`echo "$images" | wc -l | sed 's/[[:space:]]//g'`
+  if [ -n "$images" ]; then
+    echo -e "Removing dangling Docker images ($image_count)..."
+    docker rmi $images
+  fi
+}
+
+remove_all_containers() {
+  local readonly containers=`docker ps -aq`
+  local readonly container_count=`echo "$containers" | wc -l | sed 's/[[:space:]]//g'`
+  if [ -n "$containers" ]; then
+    echo -e "Removing Docker containers ($container_count) by force..."
+    docker rm -fv $containers
+  fi
+}
+
+remove_dangling_volumes
+remove_dangling_images
+
+while getopts "f" flag
+do
+  case "$flag" in
+    f)
+      remove_all_containers
+      ;;
+  esac
+done
+
+echo -e "Docker wiped."
