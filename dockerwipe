@@ -6,6 +6,7 @@
 
 
 # TODO: add usage, help when running bare
+# TODO: check if Docker is installed, throw error if not
 
 remove_dangling_volumes() {
   local readonly volumes=`docker volume ls -qf dangling=true`
