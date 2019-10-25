@@ -23,4 +23,4 @@ TBD.
 
 ## Licence
 
-Copyright © 2019 Ain Tohvri. Licenced under [GPL-3](LICENCE).
+Copyright © 2019 Ain Tohvri. Licenced under [GPL-3](LICENSE).
