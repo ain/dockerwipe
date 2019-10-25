@@ -1,7 +1,7 @@
 #!/bin/bash
 # vi:syntax=sh
 #
-# dockerwipe 1.0.0
+# dockerwipe 1.0.0 https://github.com/ain/dockerwipe
 # Copyright © 2019 Ain Tohvri. Licenced under GPL-3.
 
 
