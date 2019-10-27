@@ -1,0 +1,12 @@
+name: Test
+on: [push]
+env:
+  DANGLING_VOLUME_NAME: "dummyvolume"
+jobs:
+  remove_dangling_volumes:
+    name: Removal of dangling volumes
+    steps:
+      - uses: actions/checkout@v1
+      - run: docker volume create $DANGLING_VOLUME_NAME
+      - run: ./dockerwipe
+      - run: test $(docker volume ls -qf dangling=true) = $DANGLING_VOLUME_NAME && exit 0 || exit 1
