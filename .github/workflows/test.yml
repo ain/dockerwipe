@@ -4,6 +4,7 @@ env:
   DANGLING_VOLUME_NAME: "dummyvolume"
 jobs:
   remove_dangling_volumes:
+    runs-on: ubuntu-latest
     name: Removal of dangling volumes
     steps:
       - uses: actions/checkout@v1
