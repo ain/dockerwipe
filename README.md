@@ -18,7 +18,7 @@ TBD.
 ## Options
 
 ```
--f      Force removal of all containers
+-f      Remove all containers
 ```
 
 ## Licence
