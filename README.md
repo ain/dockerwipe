@@ -1,4 +1,4 @@
-__DISCONTINUED__. Use `docker system prune -a --volume` instead. See also [docker system prune](https://docs.docker.com/engine/reference/commandline/system_prune/).
+__DISCONTINUED__. Use `docker system prune -a --volumes` instead. See also [docker system prune](https://docs.docker.com/engine/reference/commandline/system_prune/).
 
 # dockerwipe
 
