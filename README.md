@@ -18,7 +18,7 @@ TBD.
 ## Options
 
 ```
--f      Remove all containers
+-f      Remove all containers (in addition to dangling volumes, images)
 ```
 
 ## Licence
